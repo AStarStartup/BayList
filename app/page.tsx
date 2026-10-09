@@ -6,16 +6,15 @@ import { Badge } from "@/components/ui/badge";
 import { useInventoryStore, ensureStoreConfig } from "../lib/store";
 import InventoryItemCard from "@/components/InventoryItemCard";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Github, MoreVertical, ChevronDown, ChevronUp, ChevronRight, ShoppingBag, ShoppingCart, Package } from "lucide-react";
+import { Github, MoreVertical, ShoppingBag, ShoppingCart, Package } from "lucide-react";
 
 export default function GalleryPage() {
-  const { items, categories, loading, syncing, error, fetchData, store } = useInventoryStore();
+  const { items, loading, error, fetchData, store } = useInventoryStore();
   const [filter, setFilter] = useState<string>("All");
   const [showAddModal, setShowAddModal] = useState(false);
   const [generating, setGenerating] = useState(false);
   const [generationComplete, setGenerationComplete] = useState(false);
   const [selectedItem, setSelectedItem] = useState<any>(null);
-  const [previewMode, setPreviewMode] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [exportPlatform, setExportPlatform] = useState<"all" | "ebay" | "craigslist">("all");
   const [exportFormat, setExportFormat] = useState<"json" | "csv">("json");
@@ -297,10 +296,7 @@ export default function GalleryPage() {
                     <Button 
                       variant="outline" 
                       className="rounded-full flex-1"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setPreviewMode(true);
-                      }}
+                      onClick={() => setSelectedItem(item)}
                     >
                       View Listings
                     </Button>

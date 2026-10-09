@@ -14,11 +14,6 @@ export interface StoreConfig {
   Location?: string;
 }
 
-export interface StoreConfigState {
-  loaded: boolean;
-  config: StoreConfig;
-}
-
 const defaults: StoreConfig = {
   StoreName: "BayList",
   ContactLine: "",

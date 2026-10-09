@@ -31,21 +31,6 @@ const EBAY_KEYWORDS: Record<string, string[]> = {
   cables: ["HDMI", "USB-C", "SDI", "XLR", "Audio Cable", "Video Cable"],
 };
 
-const CL_KEYWORDS: Record<string, string[]> = {
-  cameras: ["Sony", "Canon", "Nikon", "Video Camera", "Photography", "4K"],
-  lenses: ["Camera Lens", "E-Mount", "FE Mount", "Prime Lens", "Zoom Lens"],
-  broadcast: ["ATEM", "Switcher", "Live Production", "Streaming Setup"],
-  capture: ["Capture Card", "HDMI Capture", "USB Capture Card", "4K Capture"],
-  computing: ["GPU", "Graphics Card", "CPU", "Processor", "RAM", "SSD"],
-  audio: ["Audio Interface", "MIDI Controller", "USB Audio", "Recording"],
-  lighting: ["Video Light", "Studio Light", "LED Panel", "Softbox"],
-  keyboards: ["Mechanical Keyboard", "Gaming Keyboard", "RGB Keyboard"],
-  mounting: ["Camera Mount", "Tripod", "Slider", "Matte Box", "Camera Cage"],
-  small: ["Webcam", "Microphone", "Adapter", "Accessory"],
-  robotics: ["Arduino", "Raspberry Pi", "Development Board", "Embedded"],
-  cables: ["HDMI Cable", "USB Cable", "SDI Cable", "XLR Cable"],
-};
-
 const BRANDS = [
   "Sony", "Canon", "Nikon", "Blackmagic", "ATEM", "Elgato", "Magewell", "MOTU",
   "Audient", "Yamaha", "Tilta", "NEEWER", "GVM", "Viltrox", "7Artisans", "Sirui",
@@ -205,7 +190,7 @@ export function generateEbayTitle(item: InventoryItem, category: Category | unde
 
 // Generate Craigslist-optimized title (max 70 chars)
 export function generateClTitle(item: InventoryItem, category: Category | undefined, context?: ListingContext): string {
-  const { name, price } = item;
+  const { name } = item;
 
   const { brand, model } = extractBrandAndModel(item);
   const specs = extractKeySpecs(name);
