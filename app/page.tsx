@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { useInventoryStore, ensureStoreConfig } from "../lib/store";
 import InventoryItemCard from "@/components/InventoryItemCard";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Github, MoreVertical, ShoppingBag, ShoppingCart, Package } from "lucide-react";
+import { GitBranch, MoreVertical, ShoppingBag, ShoppingCart, Package } from "lucide-react";
 
 export default function GalleryPage() {
   const { items, loading, error, fetchData, store } = useInventoryStore();
@@ -169,7 +169,7 @@ export default function GalleryPage() {
                 variant="outline"
                 className="rounded-full border-slate-300 hover:bg-slate-100 gap-2"
               >
-                <Github className="w-4 h-4" />
+                <GitBranch className="w-4 h-4" />
                 View on GitHub
               </Button>
             </a>

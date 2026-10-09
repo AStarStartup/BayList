@@ -1,10 +1,6 @@
-const FlatCompat = require("@eslint/eslintrc").FlatCompat;
+import nextConfig from "eslint-config-next";
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-module.exports = [
+const eslintConfig = [
   {
     ignores: [
       "node_modules/**",
@@ -20,7 +16,7 @@ module.exports = [
       "tsconfig.tsbuildinfo",
     ],
   },
-  ...compat.extends("next/core-web-vitals"),
+  ...nextConfig,
   {
     rules: {
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
@@ -28,3 +24,5 @@ module.exports = [
     },
   },
 ];
+
+export default eslintConfig;

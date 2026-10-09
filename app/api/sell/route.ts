@@ -2,6 +2,9 @@ import { readInventoryFile, writeInventoryFile, SoldDirectory } from "@/lib/inve
 import fs from "fs";
 import path from "path";
 
+// Dev-only route; force-static so `output: "export"` can prerender it.
+export const dynamic = "force-static";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();

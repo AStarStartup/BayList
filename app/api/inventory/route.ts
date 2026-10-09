@@ -2,11 +2,14 @@ import { NextResponse } from "next/server";
 import { readInventoryFile, writeInventoryFile } from "@/lib/inventory";
 import { InventoryItem } from "@/lib/types";
 
+// Dev-only route; force-static so `output: "export"` can prerender it.
+export const dynamic = "force-static";
+
 export async function GET() {
   try {
     const data = readInventoryFile();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 });
   }
 }
@@ -52,7 +55,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Failed to save" }, { status: 500 });
     }
     return NextResponse.json({ success: true, data });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to save" }, { status: 500 });
   }
 }
@@ -73,7 +76,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Failed to delete" }, { status: 500 });
     }
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to delete" }, { status: 500 });
   }
 }

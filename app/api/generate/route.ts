@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { readInventoryFile, writeInventoryFile } from "@/lib/inventory";
 import { generateAllInventoryListings } from "@/lib/ai";
 
+// Dev-only route; force-static so `output: "export"` can prerender it.
+export const dynamic = "force-static";
+
 export async function POST(request: NextRequest) {
   try {
     // Optional: { "location": "Eugene, OR" } to stamp Craigslist titles

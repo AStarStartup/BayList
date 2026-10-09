@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { readInventoryFile } from "@/lib/inventory";
 import { generateAllExports, ListingExport } from "@/lib/export";
 
+// Static export: this route is only used in dev server mode.
+// Mark it force-static so `next build` (output: "export") can prerender it.
+export const dynamic = "force-static";
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = request.nextUrl;

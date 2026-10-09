@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { GitBranch } from "lucide-react";
 
 export default function Navbar() {
   const navLinks = [
@@ -40,7 +40,7 @@ export default function Navbar() {
           className="text-slate-600 hover:text-blue-600 transition-colors"
           aria-label="GitHub"
         >
-          <Github className="w-5 h-5" />
+          <GitBranch className="w-5 h-5" />
         </a>
       </div>
     </nav>
