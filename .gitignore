@@ -1,6 +1,7 @@
 # Build artifacts
 out/
 .next/
+tsconfig.tsbuildinfo
 
 # Dependencies
 node_modules/
